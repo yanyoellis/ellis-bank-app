@@ -1,9 +1,18 @@
-# Ellis Bank — UX Case Study
+# Ellis Bank — Interactive Private Banking Prototype
 
-Interactive portfolio concept with two connected views:
+Complete 393×852 mobile banking concept with a desktop prototype canvas and a dedicated long-form UX Case Study.
 
-- visual project cover and selected UI screens;
-- a dedicated long-form UX case study opened from the header or hero CTA.
+## Included
+
+- Splash, three onboarding screens and Face ID login;
+- Home, Accounts, Card Details and live Card Customization;
+- transfer form, review, success, receipt and error states;
+- Payments, Analytics, Vaults and Investments;
+- Lifestyle benefits, Notifications, Profile and Security;
+- interactive Private Assistant chat;
+- persistent card color and frozen-card states within the prototype session;
+- bottom navigation and desktop screen map;
+- UX Case Study available from the project header and Profile.
 
 ## Run locally
 
@@ -16,4 +25,4 @@ The production build is generated with `pnpm build`.
 
 ## Main interaction
 
-Open the project home and select **UX Case Study**. The document includes a sticky table of contents on desktop, a mobile menu, reading progress, user flows, information architecture, key UX decisions, accessibility notes, and a validation plan.
+Run the prototype, complete onboarding, unlock with Face ID, and use the bottom navigation or desktop screen map. The UX Case Study includes user flows, information architecture, key product decisions, accessibility notes, and a validation plan.

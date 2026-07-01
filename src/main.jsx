@@ -7,6 +7,7 @@ import {
   X, Zap
 } from 'lucide-react';
 import './styles.css';
+import BankApp from './bank.jsx';
 
 const navItems = [
   ['overview', 'Overview'],
@@ -249,7 +250,7 @@ function App() {
   const openCaseStudy = () => { setCaseOpen(true); history.pushState(null,'','#case-study'); };
   const closeCaseStudy = () => { setCaseOpen(false); history.pushState(null,'','#'); window.scrollTo(0,0); };
   useEffect(()=>{ const pop=()=>setCaseOpen(window.location.hash==='#case-study'); window.addEventListener('popstate',pop); return()=>window.removeEventListener('popstate',pop); },[]);
-  return caseOpen ? <CaseStudy closeCaseStudy={closeCaseStudy}/> : <ProjectHome openCaseStudy={openCaseStudy}/>;
+  return caseOpen ? <CaseStudy closeCaseStudy={closeCaseStudy}/> : <BankApp openCaseStudy={openCaseStudy}/>;
 }
 
 createRoot(document.getElementById('root')).render(<App />);
