@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import './styles.css';
 import BankApp from './bank.jsx';
+import { applyCaseLanguage } from './case-i18n.js';
 
 const navItems = [
   ['overview', 'Overview'],
@@ -177,6 +178,7 @@ function SectionTitle({ index, kicker, title, children }) {
 function CaseStudy({ closeCaseStudy }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [language, setLanguage] = useState('en');
   useEffect(() => {
     window.scrollTo(0,0);
     const handle = () => {
@@ -186,11 +188,15 @@ function CaseStudy({ closeCaseStudy }) {
     window.addEventListener('scroll', handle, { passive: true });
     return () => window.removeEventListener('scroll', handle);
   }, []);
+  useEffect(() => {
+    const frame=requestAnimationFrame(()=>applyCaseLanguage(document.querySelector('.case-study'),language));
+    return()=>cancelAnimationFrame(frame);
+  }, [language]);
   const go = id => { document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); setMenuOpen(false); };
   return (
     <main className="case-study">
       <div className="progress-bar" style={{width:`${progress}%`}} />
-      <header className="case-header"><button className="back-project" onClick={closeCaseStudy}><ArrowLeft size={16}/>Back to project</button><Logo/><button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Open table of contents">{menuOpen?<X/>:<Menu/>}</button></header>
+      <header className="case-header"><button className="back-project" onClick={closeCaseStudy}><ArrowLeft size={16}/>Back to project</button><Logo/><div className="case-language" aria-label="Case study language">{[['en','EN'],['pl','PL'],['uk','UA']].map(([code,label])=><button className={language===code?'active':''} onClick={()=>setLanguage(code)} key={code}>{label}</button>)}</div><button className="menu-button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Open table of contents">{menuOpen?<X/>:<Menu/>}</button></header>
       <aside className={`case-nav ${menuOpen?'open':''}`}><span>CASE STUDY</span>{navItems.map(([id,label],i)=><button key={id} onClick={()=>go(id)}><small>0{i+1}</small>{label}</button>)}</aside>
 
       <section className="case-hero" id="overview">

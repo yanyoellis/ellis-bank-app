@@ -13,6 +13,8 @@ Complete 393×852 mobile banking concept with a desktop prototype canvas and a d
 - persistent card color and frozen-card states within the prototype session;
 - bottom navigation and desktop screen map;
 - UX Case Study available from the project header and Profile.
+- UX Case Study language switcher for English, Polish, and Ukrainian.
+- larger desktop phone frame, inner scrolling, press feedback, and interactive detail states.
 
 ## Run locally
 
